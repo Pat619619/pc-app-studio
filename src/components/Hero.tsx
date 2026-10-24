@@ -1,5 +1,6 @@
 import { motion, useReducedMotion, useScroll, useTransform } from 'motion/react'
 import { ArrowRight, ArrowDown } from 'lucide-react'
+import { BOOKING_URL } from '../lib/links'
 
 const ease = [0.22, 1, 0.36, 1] as const
 
@@ -57,8 +58,8 @@ export function Hero() {
             Bespoke apps, business tools and AI for UK clubs and small businesses. Built around how you actually work, priced fairly and explained in plain English.
           </motion.p>
           <motion.div {...item(0.55)} className="mt-8 flex flex-col gap-3 sm:flex-row">
-            <a href="#contact" className="group inline-flex items-center justify-center gap-2 rounded-xl bg-brand px-5 py-3.5 font-medium text-white shadow-[0_10px_30px_-10px_rgba(30,107,255,.9)] transition hover:bg-brand-600">
-              Start your project
+            <a href={BOOKING_URL} target="_blank" rel="noopener" className="group inline-flex items-center justify-center gap-2 rounded-xl bg-brand px-5 py-3.5 font-medium text-white shadow-[0_10px_30px_-10px_rgba(30,107,255,.9)] transition hover:bg-brand-600">
+              Book a free call
               <ArrowRight className="size-4 transition-transform group-hover:translate-x-0.5" aria-hidden />
             </a>
             <a href="#work" className="inline-flex items-center justify-center gap-2 rounded-xl border border-white/20 bg-white/[0.06] px-5 py-3.5 font-medium text-white backdrop-blur transition hover:bg-white/[0.12]">

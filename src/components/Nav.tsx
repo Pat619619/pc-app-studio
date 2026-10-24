@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
-import { ArrowRight } from 'lucide-react'
+import { CalendarDays } from 'lucide-react'
+import { BOOKING_URL } from '../lib/links'
 
 const links = [
   { href: '#services', label: 'Services' },
@@ -43,11 +44,13 @@ export function Nav() {
           ))}
         </ul>
         <a
-          href="#contact"
-          className="group inline-flex items-center gap-1.5 rounded-xl bg-brand px-3.5 py-2 text-sm font-medium text-white transition hover:bg-brand-600"
+          href={BOOKING_URL}
+          target="_blank"
+          rel="noopener"
+          className="inline-flex items-center gap-1.5 rounded-xl bg-brand px-3.5 py-2 text-sm font-medium text-white transition hover:bg-brand-600"
         >
-          Get in touch
-          <ArrowRight className="size-4 transition-transform group-hover:translate-x-0.5" aria-hidden />
+          <CalendarDays className="size-4" aria-hidden />
+          Book a call
         </a>
       </nav>
     </header>
