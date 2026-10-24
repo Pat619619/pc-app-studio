@@ -110,7 +110,7 @@ footer .brand img{width:30px;height:30px;border-radius:7px}
   section{padding:96px 0}
   .nav-links{display:flex}
   .hero{padding:72px 0 104px}
-  .hero .wrap{grid-template-columns:1.05fr 1fr;gap:60px}
+  .hero .wrap{grid-template-columns:.9fr 1.1fr;gap:56px}
   .grid{grid-template-columns:repeat(4,1fr)}
   .logos{grid-template-columns:repeat(5,1fr);gap:18px}
   .logos li{min-height:170px}
