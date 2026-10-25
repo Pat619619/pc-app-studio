@@ -12,7 +12,7 @@ const projects: Project[] = [
     img: '/img/fieldops-map.webp', imgAlt: 'FieldOps Now app showing farm boundaries on a map', bg: 'bg-[#1f3a2a]',
     body: 'A job and field-team management app, live with the Oakwood syndicate and available on Google Play. Members share one map, see who is on site and keep a shared logbook.',
     feats: ['Farm boundaries, pins and live weather on one map', '"I\'m on site" check-ins so everyone knows who is out', 'Shared logbook and group chat', 'Works on Android phones and in any web browser'],
-    tags: ['Android', 'Google Play', 'Web app', 'Maps'], href: 'https://oakwood.fieldopsnow.com/', cta: 'View the live app',
+    tags: ['Android', 'Google Play', 'Web app', 'Maps'], href: 'https://fieldopsnow.com/', cta: 'View the live app',
   },
   {
     name: 'Y2Fame', sub: 'Online personalised gift shop', icon: '/img/y2fame-icon.png',
