@@ -13,7 +13,7 @@ export function About() {
       <div className="mx-auto grid max-w-6xl items-center gap-12 px-5 sm:px-8 lg:grid-cols-2 lg:gap-20">
         <Reveal className="relative">
           <div className="overflow-hidden rounded-3xl bg-ink shadow-[0_30px_80px_-40px_rgba(11,27,58,.7)] ring-1 ring-navy/10">
-            <img src="/img/crest-panel.webp" alt="PC App Studio crest" width={1800} height={1231} loading="lazy" className="w-full" />
+            <picture><source type="image/webp" srcSet="/img/about-800.webp 800w, /img/about-1600.webp 1600w" sizes="(min-width:1024px) 560px, 100vw" /><img src="/img/about.jpg" alt="App developer workspace with code and app designs on screen" width={1600} height={1200} loading="lazy" className="w-full" /></picture>
           </div>
         </Reveal>
         <div>

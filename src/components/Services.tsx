@@ -51,12 +51,13 @@ export function Services() {
 
           {/* Clubs */}
           <Reveal delay={0.1} className="relative overflow-hidden rounded-3xl bg-ink text-white md:col-span-4">
-            <picture>
-              <source type="image/webp" srcSet="/img/heritage-banner.webp" />
-              <img src="/img/heritage-banner.webp" alt="" width={1600} height={666} loading="lazy" className="absolute inset-0 h-full w-full object-cover object-left opacity-60" />
-            </picture>
-            <div aria-hidden className="absolute inset-0 bg-gradient-to-r from-ink/10 via-ink/70 to-ink" />
-            <div className="relative ml-auto p-7 sm:p-9 md:w-[60%]">
+            <div className="relative md:absolute md:inset-y-0 md:left-0 md:w-[42%]">
+              <picture>
+                <source type="image/webp" srcSet="/img/club-app-800.webp 800w, /img/club-app-1600.webp 1600w" sizes="(min-width:768px) 40vw, 100vw" />
+                <img src="/img/club-app.jpg" alt="Club members app showing class bookings and a digital membership card" width={1600} height={1200} loading="lazy" className="aspect-[4/3] w-full object-cover md:aspect-auto md:h-full" />
+              </picture>
+            </div>
+            <div className="relative ml-auto p-7 sm:p-9 md:w-[58%]">
               <div className="flex size-11 items-center justify-center rounded-xl bg-white/10 ring-1 ring-white/15">
                 <Users className="size-5" aria-hidden />
               </div>

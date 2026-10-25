@@ -30,20 +30,20 @@ export function Hero() {
           <source type="image/webp" srcSet="/img/hero-960.webp 960w, /img/hero-1600.webp 1600w, /img/hero-2400.webp 2400w" sizes="100vw" />
           <img
             src="/img/hero-1600.webp"
-            alt="Laptop with the PC App Studio crest on the lid"
+            alt="Phones showing a PC App Studio members app with bookings and a digital membership card"
             width={2400}
-            height={1283}
+            height={1350}
             fetchPriority="high"
-            className="h-full w-full object-cover object-[24%_45%] md:object-[center_45%]"
+            className="h-full w-full object-cover object-[68%_50%] md:object-[center_50%]"
           />
         </picture>
       </motion.div>
       {/* readability overlays */}
-      <div aria-hidden className="absolute inset-x-0 top-0 -z-10 h-[62%] bg-gradient-to-t from-ink via-ink/20 to-transparent md:inset-0 md:h-auto md:bg-gradient-to-l md:from-ink/95 md:via-ink/60 md:to-transparent" />
+      <div aria-hidden className="absolute inset-x-0 top-0 -z-10 h-[62%] bg-gradient-to-t from-ink via-ink/20 to-transparent md:inset-0 md:h-auto md:bg-gradient-to-r md:from-ink/95 md:via-ink/50 md:to-transparent" />
       <div aria-hidden className="absolute inset-x-0 bottom-0 -z-10 h-40 bg-gradient-to-t from-ink/80 to-transparent" />
       <div aria-hidden className="absolute inset-x-0 top-0 -z-10 h-32 bg-gradient-to-b from-ink/60 to-transparent" />
 
-      <motion.div style={{ opacity: fade }} className="mx-auto flex h-full max-w-6xl items-end px-5 pb-10 sm:px-8 md:items-center md:justify-end md:pb-0">
+      <motion.div style={{ opacity: fade }} className="mx-auto flex h-full max-w-6xl items-end px-5 pb-10 sm:px-8 md:items-center md:justify-start md:pb-0">
         <div className="w-full max-w-xl md:w-[46%]">
           <motion.p {...item(0.15)} className="mb-5 hidden md:inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/[0.06] px-3 py-1 font-mono text-[11px] uppercase tracking-[0.18em] text-white/80 backdrop-blur">
             <span className="size-1.5 rounded-full bg-brand shadow-[0_0_10px_2px_rgba(30,107,255,.8)]" />

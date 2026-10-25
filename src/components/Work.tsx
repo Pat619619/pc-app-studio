@@ -29,7 +29,7 @@ export function Work() {
       <div className="mx-auto grid max-w-6xl gap-12 px-5 sm:px-8 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.9fr)] lg:gap-16">
         <div className="lg:sticky lg:top-28 lg:self-start">
           <Reveal>
-            <Eyebrow>Our work</Eyebrow>
+            <Eyebrow>Some examples of our work</Eyebrow>
             <h2 className="mt-3 text-4xl font-semibold tracking-[-0.035em] text-balance sm:text-5xl">Live and in use.</h2>
             <p className="mt-5 text-lg leading-relaxed text-slate-ink">Products designed, built and run by PC App Studio, live today.</p>
             <ol className="mt-8 hidden space-y-2 font-mono text-sm text-slate-ink lg:block">
