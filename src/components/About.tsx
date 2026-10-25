@@ -33,7 +33,7 @@ export function About() {
             ))}
           </dl>
           <Reveal delay={0.1} className="mt-8 flex items-center gap-4">
-            <img src="/img/logo-nav.png" alt="" width={48} height={48} className="size-12 rounded-xl" />
+            <img src="/img/icon-512.png" alt="" width={48} height={48} className="size-12 rounded-xl" />
             <div>
               <p className="font-semibold">Patrick Carroll, founder</p>
               <p className="flex items-center gap-1.5 text-sm text-slate-ink"><MapPin className="size-3.5" aria-hidden />Borehamwood, Hertfordshire</p>

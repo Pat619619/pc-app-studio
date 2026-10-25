@@ -28,8 +28,7 @@ export function Nav() {
         }`}
       >
         <a href="#top" className="flex items-center gap-2.5 font-semibold tracking-tight" aria-label="PC App Studio home">
-          <img src="/img/logo-nav.png" alt="" width={30} height={30} className="size-[30px] rounded-[8px]" />
-          <span className="text-[15px]"><span className="text-brand">PC</span> App Studio</span>
+          <img src={solid ? '/img/logo-b3.png' : '/img/logo-b3-on-navy.png'} alt="PC App Studio" width={177} height={24} className="h-5 w-auto sm:h-6" />
         </a>
         <ul className="hidden items-center gap-1 md:flex">
           {links.map((l) => (
