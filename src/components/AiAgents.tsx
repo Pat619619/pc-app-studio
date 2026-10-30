@@ -83,9 +83,60 @@ function useFollow(n: number) {
   return { refs, state }
 }
 
+const TIMES = ['9:30am', '11:00am', '1:30pm', '3:00pm', '4:30pm']
+const BOOKED = [[0, 1, 3], [1, 2], [0, 2, 4], [1, 3]]
+function nextDays(n: number) {
+  const out: Date[] = []; const d = new Date(); d.setHours(0, 0, 0, 0)
+  while (out.length < n) { d.setDate(d.getDate() + 1); if (d.getDay() % 6 !== 0) out.push(new Date(d)) }
+  return out
+}
+function BookingModal({ onClose }: { onClose: () => void }) {
+  const days = nextDays(4)
+  const [day, setDay] = useState(0)
+  const [time, setTime] = useState<string | null>(null)
+  const label = (d: Date) => d.toLocaleDateString('en-GB', { weekday: 'long', day: 'numeric', month: 'long' })
+  useEffect(() => { const k = (e: KeyboardEvent) => e.key === 'Escape' && onClose(); window.addEventListener('keydown', k); return () => window.removeEventListener('keydown', k) }, [onClose])
+  const href = time ? `mailto:contact@pcappstudio.com?subject=${encodeURIComponent(`Free call – ${label(days[day])}, ${time}`)}&body=${encodeURIComponent(`Hi PC App Studio,\n\nI'd like to book a free 15-minute call about AI agents on ${label(days[day])} at ${time} (UK time).\n\nName:\nBusiness:\nPhone:\n\nThanks`)}` : undefined
+  return (
+    <div role="dialog" aria-modal="true" aria-label="Book a free call" className="fixed inset-0 z-[70] flex items-end justify-center bg-black/60 p-3 backdrop-blur-sm sm:items-center" onClick={onClose}>
+      <div onClick={(e) => e.stopPropagation()} className="w-full max-w-md rounded-3xl border border-white/10 bg-[#0b1430] p-6 text-white shadow-2xl">
+        <div className="flex items-start justify-between">
+          <div><p className="font-mono text-xs uppercase tracking-[0.2em] text-[#8fb4ff]">Free 15-min call</p><h3 className="mt-1 text-2xl font-semibold">Pick a time</h3></div>
+          <button onClick={onClose} aria-label="Close" className="rounded-full px-2 text-2xl leading-none text-white/60 hover:text-white">×</button>
+        </div>
+        <p className="mt-2 text-sm text-white/60">Spots are filling fast. Grab one before it goes.</p>
+        <div className="mt-5 grid grid-cols-4 gap-2">
+          {days.map((d, k) => (
+            <button key={k} onClick={() => { setDay(k); setTime(null) }} className={`rounded-xl border px-1 py-2 text-center ${k === day ? 'border-brand bg-brand text-white' : 'border-white/10 bg-white/5 text-white/80'}`}>
+              <span className="block text-xs">{d.toLocaleDateString('en-GB', { weekday: 'short' })}</span><span className="block text-lg font-semibold">{d.getDate()}</span>
+            </button>
+          ))}
+        </div>
+        <div className="mt-4 grid grid-cols-2 gap-2 sm:grid-cols-3">
+          {TIMES.map((t, k) => {
+            const booked = BOOKED[day].includes(k)
+            return (
+              <button key={t} disabled={booked} onClick={() => setTime(t)} className={`rounded-xl border px-2 py-2.5 text-sm font-medium ${booked ? 'cursor-not-allowed border-white/5 bg-white/[.03] text-white/30 line-through' : time === t ? 'border-[#38e1ff] bg-[#38e1ff]/15 text-white' : 'border-white/15 bg-white/5 text-white hover:border-brand'}`}>
+                {t}<span className="block text-[10px] font-normal no-underline">{booked ? 'Booked' : 'Available'}</span>
+              </button>
+            )
+          })}
+        </div>
+        <a href={href} aria-disabled={!time} className={`mt-6 flex items-center justify-center gap-2 rounded-full px-6 py-3 font-semibold ${time ? 'bg-brand text-white' : 'pointer-events-none bg-white/10 text-white/40'}`}>
+          {time ? `Request ${days[day].toLocaleDateString('en-GB', { weekday: 'short' })} ${time}` : 'Choose a time'} <ArrowRight className="size-4" />
+        </a>
+        <p className="mt-3 text-center text-xs text-white/40">Opens an email to contact@pcappstudio.com</p>
+      </div>
+    </div>
+  )
+}
+
 export function AiAgents() {
   const { refs, state } = useFollow(bots.length)
+  const [open, setOpen] = useState(false)
   return (
+    <>
+    {open && <BookingModal onClose={() => setOpen(false)} />}
     <section id="ai-agents" className="grain relative overflow-hidden bg-ink py-24 text-white sm:py-32">
       <style>{flyCss}</style>
       <div aria-hidden className="pointer-events-none absolute inset-0 overflow-hidden"><div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-brand/60 to-transparent" />
@@ -104,7 +155,7 @@ export function AiAgents() {
           <p className="mt-5 text-lg text-white/70">They answer, book, chase and follow up — while you’re out earning.</p>
           <p className="mt-4 text-xl font-semibold text-white">Your unfair advantage. While you work, they win.</p>
           <div className="mt-8 flex flex-wrap items-center gap-4">
-            <a href="mailto:contact@pcappstudio.com" className="inline-flex items-center gap-2 rounded-full bg-brand px-6 py-3 font-semibold text-white shadow-lg">Book a free call <ArrowRight className="size-4" /></a>
+            <button type="button" onClick={() => setOpen(true)} className="inline-flex items-center gap-2 rounded-full bg-brand px-6 py-3 font-semibold text-white shadow-lg">Book a free call <ArrowRight className="size-4" /></button>
             <a href="mailto:contact@pcappstudio.com" className="text-white/70">contact@pcappstudio.com</a>
           </div>
         </div>
@@ -118,5 +169,6 @@ export function AiAgents() {
         </div>
       </div>
     </section>
+    </>
   )
 }
