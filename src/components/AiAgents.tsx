@@ -102,7 +102,6 @@ export function AiAgents() {
           <h2 className="mt-3 text-4xl font-semibold tracking-[-0.035em] text-balance sm:text-6xl">AI agents that win you jobs</h2>
           <p className="mt-6 text-2xl font-semibold text-[#8fb4ff]">Your 24/7 team that never misses a lead.</p>
           <p className="mt-5 text-lg text-white/70">They answer, book, chase and follow up — while you’re out earning.</p>
-          <p className="mt-4 text-lg text-white/70">Built for pest control and field businesses. Set up by PC App Studio. Ready when you are.</p>
           <div className="mt-8 flex flex-wrap items-center gap-4">
             <a href="mailto:contact@pcappstudio.com" className="inline-flex items-center gap-2 rounded-full bg-brand px-6 py-3 font-semibold text-white shadow-lg">Book a free call <ArrowRight className="size-4" /></a>
             <a href="mailto:contact@pcappstudio.com" className="text-white/70">contact@pcappstudio.com</a>
