@@ -4,6 +4,7 @@ import { Nav } from './components/Nav'
 import { Hero } from './components/Hero'
 import { Marquee } from './components/Marquee'
 import { Services } from './components/Services'
+import { AiAgents } from './components/AiAgents'
 import { Work } from './components/Work'
 import { About } from './components/About'
 import { Process } from './components/Process'
@@ -24,6 +25,7 @@ export default function App() {
       <main id="main">
         <Marquee />
         <Services />
+        <AiAgents />
         <Work />
         <About />
         <Process />
