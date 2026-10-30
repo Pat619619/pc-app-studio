@@ -23,9 +23,9 @@ export default function App() {
       <Nav />
       <Hero />
       <main id="main">
+        <AiAgents />
         <Marquee />
         <Services />
-        <AiAgents />
         <Work />
         <About />
         <Process />

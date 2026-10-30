@@ -46,9 +46,9 @@ const items = [
 ]
 
 const bots = [
-  { cls: 'left-[50%] top-3 w-14 sm:left-[40%] sm:top-4 sm:w-20', anim: 'fly1 9s ease-in-out infinite', speed: 0.12, glow: 'rgba(56,225,255,.6)' },
-  { cls: 'right-[4%] bottom-6 sm:bottom-auto sm:top-[46%] sm:right-[1%] w-14 sm:w-16', anim: 'fly2 7s ease-in-out infinite', speed: -0.1, glow: 'rgba(56,225,255,.5)' },
-  { cls: 'left-[3%] bottom-16 hidden w-12 sm:block', anim: 'fly3 4s ease-in-out infinite', speed: 0.08, glow: 'rgba(56,225,255,.45)' },
+  { cls: 'left-[55%] -top-20 w-14 sm:left-[40%] sm:-top-24 sm:w-20', anim: 'fly1 9s ease-in-out infinite', speed: 0.35, glow: 'rgba(56,225,255,.6)' },
+  { cls: 'right-[4%] -bottom-10 sm:bottom-auto sm:top-[46%] sm:right-[1%] w-14 sm:w-16', anim: 'fly2 7s ease-in-out infinite', speed: -0.3, glow: 'rgba(56,225,255,.5)' },
+  { cls: 'left-[3%] -bottom-24 hidden w-12 sm:block', anim: 'fly3 4s ease-in-out infinite', speed: 0.25, glow: 'rgba(56,225,255,.45)' },
 ]
 
 function useFollow(n: number) {
@@ -65,7 +65,7 @@ function useFollow(n: number) {
         const cx = r.left + r.width / 2, cy = r.top + r.height / 2
         const lx = Math.max(-4, Math.min(4, (vw / 2 - cx) / 80))
         const ly = Math.max(-4, Math.min(4, (vh / 2 - cy) / 60 + dir * 3))
-        return { x: lx, y: ly, p: Math.max(-50, Math.min(50, (vh / 2 - sec.top - sec.height / 2) * bots[k].speed)) }
+        return { x: lx, y: ly, p: Math.max(-160, Math.min(160, (vh / 2 - sec.top - sec.height / 2) * bots[k].speed)) }
       }))
     }
     const onScroll = () => {
@@ -86,12 +86,12 @@ function useFollow(n: number) {
 export function AiAgents() {
   const { refs, state } = useFollow(bots.length)
   return (
-    <section id="ai-agents" className="grain relative overflow-hidden bg-ink py-24 text-white sm:py-32">
+    <section id="ai-agents" className="grain relative z-20 bg-ink py-24 text-white sm:py-32">
       <style>{flyCss}</style>
-      <div aria-hidden className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-brand/60 to-transparent" />
-      <div aria-hidden className="absolute right-0 top-10 h-80 w-[40rem] rounded-full bg-brand/20 blur-3xl" />
+      <div aria-hidden className="pointer-events-none absolute inset-0 overflow-hidden"><div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-brand/60 to-transparent" />
+      <div className="absolute right-0 top-10 h-80 w-[40rem] rounded-full bg-brand/20 blur-3xl" /></div>
       {bots.map((b, k) => (
-        <div key={k} ref={(el) => { refs.current[k] = el }} className={`pointer-events-none absolute z-10 ${b.cls}`}
+        <div key={k} ref={(el) => { refs.current[k] = el }} className={`pointer-events-none absolute z-30 ${b.cls}`}
           style={{ transform: `translateY(${state[k].p}px)`, transition: 'transform .6s cubic-bezier(.2,.8,.2,1)' }}>
           <Bot className="w-full" look={state[k]} style={{ animation: b.anim, filter: `drop-shadow(0 0 20px ${b.glow})` }} />
         </div>
