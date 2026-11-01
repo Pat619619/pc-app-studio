@@ -4,7 +4,7 @@ import { Nav } from './components/Nav'
 import { Hero } from './components/Hero'
 import { Marquee } from './components/Marquee'
 import { Services } from './components/Services'
-import { AiAgents } from './components/AiAgents'
+import { AiAgents, BookingHost } from './components/AiAgents'
 import { Work } from './components/Work'
 import { About } from './components/About'
 import { Process } from './components/Process'
@@ -21,6 +21,7 @@ export default function App() {
     <>
       <a href="#main" className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[60] focus:rounded-lg focus:bg-white focus:px-4 focus:py-2 focus:text-navy">Skip to content</a>
       <Nav />
+      <BookingHost />
       <Hero />
       <main id="main">
         <AiAgents />

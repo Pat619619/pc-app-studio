@@ -1,3 +1,4 @@
+import { BOOKING_URL } from '../lib/links'
 import { useEffect, useRef, useState } from 'react'
 import { PhoneMissed, Star, Inbox, ArrowRight, CalendarCheck, FileText, MessageCircle, BellRing, MessagesSquare } from 'lucide-react'
 import { Eyebrow } from './Reveal'
@@ -90,7 +91,7 @@ function nextDays(n: number) {
   while (out.length < n) { d.setDate(d.getDate() + 1); if (d.getDay() % 6 !== 0) out.push(new Date(d)) }
   return out
 }
-function BookingModal({ onClose }: { onClose: () => void }) {
+export function BookingModal({ onClose }: { onClose: () => void }) {
   const days = nextDays(4)
   const [day, setDay] = useState(0)
   const [time, setTime] = useState<string | null>(null)
@@ -133,10 +134,9 @@ function BookingModal({ onClose }: { onClose: () => void }) {
 
 export function AiAgents() {
   const { refs, state } = useFollow(bots.length)
-  const [open, setOpen] = useState(false)
+  const setOpen = (_: boolean) => window.dispatchEvent(new Event('open-booking'))
   return (
     <>
-    {open && <BookingModal onClose={() => setOpen(false)} />}
     <section id="ai-agents" className="grain relative overflow-hidden bg-ink py-24 text-white sm:py-32">
       <style>{flyCss}</style>
       <div aria-hidden className="pointer-events-none absolute inset-0 overflow-hidden"><div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-brand/60 to-transparent" />
@@ -171,4 +171,18 @@ export function AiAgents() {
     </section>
     </>
   )
+}
+
+export function BookingHost() {
+  const [open, setOpen] = useState(false)
+  useEffect(() => {
+    const ev = () => setOpen(true)
+    const click = (e: MouseEvent) => {
+      const a = (e.target as HTMLElement).closest?.('a')
+      if (a && a.getAttribute('href') === BOOKING_URL) { e.preventDefault(); setOpen(true) }
+    }
+    window.addEventListener('open-booking', ev); document.addEventListener('click', click, true)
+    return () => { window.removeEventListener('open-booking', ev); document.removeEventListener('click', click, true) }
+  }, [])
+  return open ? <BookingModal onClose={() => setOpen(false)} /> : null
 }
