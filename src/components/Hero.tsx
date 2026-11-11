@@ -45,10 +45,6 @@ export function Hero() {
 
       <motion.div style={{ opacity: fade }} className="mx-auto flex h-full max-w-6xl items-end px-5 pb-10 sm:px-8 md:items-center md:justify-start md:pb-0">
         <div className="w-full max-w-xl md:w-[46%]">
-          <motion.p {...item(0.15)} className="mb-5 hidden md:inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/[0.06] px-3 py-1 font-mono text-[11px] uppercase tracking-[0.18em] text-white/80 backdrop-blur">
-            <span className="size-1.5 rounded-full bg-brand shadow-[0_0_10px_2px_rgba(30,107,255,.8)]" />
-            Borehamwood · Hertfordshire · UK
-          </motion.p>
           <motion.h1 {...item(0.25)} className="text-[42px] leading-[0.98] font-semibold tracking-[-0.035em] text-balance sm:text-6xl lg:text-[76px]">
             Smart apps.
             <br />
